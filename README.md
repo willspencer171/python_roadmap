@@ -7,3 +7,4 @@
 >   - [Binary Search Tree](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Binary%20Search%20Tree)
 >   - [Hash Tables](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Hash%20Tables)
 >   - [Queues](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Queues)
+>   - [Recursion](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Recursion/recursion.py)
