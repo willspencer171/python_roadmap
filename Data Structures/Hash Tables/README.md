@@ -1,11 +1,14 @@
 # Hash Tables
+
 ## Dipping my toes into Test-Driven Development (TDD) as well as messing around with different data types
+
 ---
 Following a link from [Roadmap - Python](roadmap.sh/python), I came across Real Python's [Build a Hash Table in Python with TDD](https://realpython.com/python-hash-table/). For most of this leg of my development, I used this as my bible, a holy text, the final remaining pillar of my sanity.
 
-I think it took me 3, maybe 4, days on and off to get through this mammoth webpage, much like the [Heaps, Stacks and Queues](https://realpython.com/queue-in-python) tutorial. 
+I think it took me 3, maybe 4, days on and off to get through this mammoth webpage, much like the [Heaps, Stacks and Queues](https://realpython.com/queue-in-python) tutorial.
 
 > This was a great learning experience for me in that I've found some expert best practices for testing, as well as creating object classes
+>
 > - Test-Driven Development (see [test](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Hash%20Tables/test_hashtable.py))
 >   - This kind of gives me a good way to document my steps in creating code, rather than just creating and not having any evidence for the ridiculous number of adjustments and tests actually done
 > - Bespoke object classes (HashTable and Pair are examples)

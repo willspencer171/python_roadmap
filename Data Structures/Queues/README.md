@@ -1,5 +1,7 @@
 # Queues, Stacks, Heaps and Graphs
+
 ## Yikes, this took a while! Even though I was following a tutorial :/
+
 ---
 For this little section, the first in this project, I started from [Python Stacks, Queues, and Priority Queues in Practice](realpython.com/queues-in-python). This was definitely going in at the deep end, but I kind of got to grips with it all down the line.
 
@@ -9,11 +11,12 @@ Obviously, the first place to start is queues and stacks - FIFO and FILO (modifi
 
 The last part of the tutorial was a nightmare - purely because of installing [pygraphviz](https://pygraphviz.github.io). I hope the developers know that I don't like them. Anyway, once I finally got that installed, I put queues and stacks to practice. There were some bits and pieces in there that I was just blindly following `[line for line in code]` but the whole thing, once I commented it up, made sense in the scheme of traversals and searches. Now I can tell you that the shortest path from Portsmouth to Edinburgh is:
 <center>Portsmouth → Southampton → Winchester → Oxford → Coventry → Birmingham → Stoke-on-Trent → Manchester → Salford → Preston → Lancaster → Carlisle → Edinburgh
-</center> 
+</center>
 
 In case you were wondering.
 
 >In all of this, I have learned:
+>
 > - How to implement a queue, stack, heap and priority queue in Python
 >   - Couldn't do it again, mind you
 > - What a Mixin is, and how to use one
