@@ -13,7 +13,7 @@ I have a selection of common sorting algorithms used in Python, as well as a sim
 >   - Time complexity is a measure of how we expect the amount of processing time to increase with respect to the size of the data being passed to an algorithm. There is a hierarchy of expressions, the fastest of which being O(1) (constant)
 >   - I kind of liken this to the reaction order that I saw so much of in my kinetics modules at uni. However, the reaction order can only be with respect to the slowest (worst-case) part of a reaction, otherwise, every reaction has no limit on best-case scenario i.e every best case scenario is O(1)
 >- Different sorting algorithms!
->   - Bubble and insertion sorts are done using nested loops, giving them a time complexity of O(n^2)
+>   - Bubble and insertion sorts are done using nested loops, giving them a time complexity of O(n<sup>2</sup>)
 >   - Merge and quicksort use a loop and recursion instead, giving them a time complexity of O(n log n). This is offset by the increase in space complexity due to the use of the call stack data structure
 
 As always, please feel free to provide **constructive** criticisms by reaching out to me on [Instagram](https://www.instagram.com/will_spencer171) or [LinkedIn](https://www.linkedin.com/in/willspencer171). I'm always learning and people always have opinions so let me hear them!
