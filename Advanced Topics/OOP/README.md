@@ -308,7 +308,7 @@ At this point I think I'm a little confused, but here's my understanding:
 
 ## Properties
 
-This is what you'll sometimes see on an object whose attributes you are trying to reach. A property looks a lot like an attribute, but it's actually a getter function with a `@property` decorator. Have a look at my [Hash Table](https://vscode.dev/github/willspencer171/python_roadmap/blob/master/Data%20Structures/Hash%20Tables/hashtable_sep_chain.py#L179) file, which includes a few properties.
+This is what you'll sometimes see on an object whose attributes you are trying to reach. A property looks a lot like an attribute, but it's actually a getter function with a `@property` decorator. Have a look at my [Hash Table](https://github.com/willspencer171/python_roadmap/blob/master/Data%20Structures/Hash%20Tables/hashtable_sep_chain.py#L179) file, which includes a few properties.
 
 One thing that I haven't used before but is interesting is setting and deleting properties using decorators:
 
