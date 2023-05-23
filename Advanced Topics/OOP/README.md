@@ -8,7 +8,7 @@
 >- [Functions Inside Classes](#functions-inside-classes)
 >- [Inheritance](#inheritance)
 >- [Encapsulation](#encapsulation)
->- [Properties](#properties-get--set)
+>- [Properties](#properties)
 
 ### The 4 Principles of OOP
 
@@ -343,6 +343,16 @@ will.salary         # None
 ```
 
 What's really good about using properties is that the `__salary` attribute is so far abstracted that we can use the name `salary` to access it as if it were the name of the attribute instead of `__salary`. No more `will.get_salary()`
+
+---
+
+Now, this doesn't cover everything there is to know about classes. Two other points that come up a lot are Multiple Inheritance and Mixins. See below for some information on those:
+
+[Inheritance in Python](https://www.javatpoint.com/inheritance-in-python) --- [Multiple Inheritance](https://www.programiz.com/python-programming/multiple-inheritance)
+
+[Python Mixins](https://www.pythontutorial.net/python-oop/python-mixin/) --- [What is a mixin and why is it useful?](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-is-it-useful)
+
+---
 
 Now, I'm both at the end of the video lecture and my wit's end SO I'm gonna sign this off and say my usual thing
 
