@@ -352,6 +352,10 @@ Now, this doesn't cover everything there is to know about classes. Two other poi
 
 [Python Mixins](https://www.pythontutorial.net/python-oop/python-mixin/) --- [What is a mixin and why is it useful?](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-is-it-useful)
 
+Another thing to look at is the magic or dunder methods that can be included:
+
+[Python - Magic or Dunder Methods](https://www.tutorialsteacher.com/python/magic-methods-in-python)
+
 ---
 
 Now, I'm both at the end of the video lecture and my wit's end SO I'm gonna sign this off and say my usual thing
