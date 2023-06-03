@@ -18,3 +18,7 @@
 >   - [Lambdas](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/lambdas.py)
 >   - [Regex](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/regex.py)
 >   - [OOP](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/OOP)
+
+## What I'm Up To
+
+![Roadmap](roadmap.sh_python.png)
