@@ -5,7 +5,7 @@
 First, I'll just link the other folders so you know they're there to read if you want, but they each have their own READMEs to go through :)
 
 >- [Object Oriented Programming (OOP)](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/OOP)
->- [Modules](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/PyModules)
+>- [Packages](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/Packages)
 
 I've got some smaller topics in here that were next on my to-do list according to the [Roadmap](https://roadmap.sh/python). The few that I'll cover in this README are the following:
 
@@ -61,8 +61,17 @@ But that's okay, cos at least this way I'm not making the space complexity of an
 >
 >- Problem is that it can reduce readability of code and also reproducibility since the function isn't being used anywhere else, even if it does get repeated sometimes
 >   - In which case, you're better off just using a `def` function
->
 
 Overall, I enjoy lambdas. Since they can be used in lieu of named functions, they can be put into other methods like filter, reduce and map. This makes it powerful without overcomplicating your code. After all, if you need readability, just indent and newline your code properly :)
+
+## [List Comprehension and Generators](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/list_comps_and_generators.py)
+
+List generators are ubiquitous - I use them absolutely everywhere and they are my lifeline when it comes to doing anything. I should probably not be using them all the time like that but they're great. They increase readability, are simple to set up, and have powerful uses.
+
+List (and, by extension, dictionary) comprehensions create lists which are saved to a variable, a physical memory location, and each item in the list gets its own memory location. This can lead to complications with memory usage (doesn't affect the memory complexity compared with the following, however). In contrast, we have generators (which I did use in my [Recursion](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Recursion) studies).
+
+Generators and generator expressions are essentially functions that yield a value through each iteration. These are written either as functions using the `yield` statement, or using syntax similar to a list comp, replacing the `[]` with `()`. The difference is subtle - the generator's values are not loaded into memory _until required_ by the code. This means less memory usage, but does mean that you can't access a specific value from a generator. Also, once a generator has been iterated through, it is exhausted and cannot be reused like a list can.
+
+---
 
 As always, thanks for reading my READMEs, I hope you had fun like I did writing it :') you're more than welcome to stick around, stay a while and maybe have a cup of tea (bring your own kettle, mugs, tea. milk and water). I'm always happy to have a chat about the stuff I'm doing since it keeps me motivated and curious about what's going on :) as usual you can find me on [Instagram](https://www.instagram.com/will_spencer171) or [LinkedIn](https://www.linkedin.com/in/willspencer171)

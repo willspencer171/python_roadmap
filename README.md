@@ -12,12 +12,20 @@
 >   - [Queues](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Queues)
 >   - [Recursion](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Recursion/recursion.py)
 >   - [Sorting Algorithms](https://github.com/willspencer171/python_roadmap/tree/master/Data%20Structures/Sorting%Algorithms)
+>
 > - [Advanced Topics](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics)
 >   - [Decorators](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/decorators.py)
 >   - [Iterators](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/iterators.py)
 >   - [Lambdas](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/lambdas.py)
 >   - [Regex](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/regex.py)
 >   - [OOP](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/OOP)
+>   - [Packages](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/Packages)
+>   - [List Comprehension and Generators](https://github.com/willspencer171/python_roadmap/tree/master/Advanced%20Topics/list_comps_and_generators.py)
+>
+> - [Frameworks](https://github.com/willspencer171/python_roadmap/tree/master/Frameworks/)
+>   - [Synchronous](https://github.com/willspencer171/python_roadmap/tree/master/Frameworks/Synchronous)
+>   - [Asynchronous](https://github.com/willspencer171/python_roadmap/tree/master/Frameworks/Asynchronous)
+>   - [Fast API](https://github.com/willspencer171/python_roadmap/tree/master/Frameworks/Fast%20API)
 
 ## What I'm Up To
 
