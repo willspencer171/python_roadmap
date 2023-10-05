@@ -1,6 +1,6 @@
-# Frameworks
+# Web Frameworks
 
-## What is a Framework?
+## What is a Web Framework?
 
 A framework is a system that provides a generic function, that can be modified with custom code to create a specific-function piece of bespoke software. They automate repetitive, complex or redundant processes to make the job of a developer easier.
 
