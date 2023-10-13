@@ -53,7 +53,7 @@ Now, we have the folder `storefront` that acts as a package full of modules (`__
 
 With this in mind, we now need to start typing `python manage.py` into the terminal in place of `django-admin`. Since it is a wrapper, the same functions can be used, including `runserver`. This does what it says on the tin and runs your application on the local server from whatever port you specify. It defaults to port 8000. Pressing Ctrl-C in the terminal will terminate the server.
 
-> <p align=center> <img src=https://github.com/willspencer171/python_roadmap/blob/master/Frameworks/Synchronous/Django/Django-Open.png> </p>
+> ![Django Launch](Django-Open.png)
 > Django is running successfully if you see this window pop up
 
 Another important part of setting up the environment is ensuring your Python interpreter is set to the venv's Python version. You can do this by changing the interpreter to the python script found in the venv's `Scripts` folder. As well as this, it really helps to have the terminal inside VS Code, so you don't have to have it in a separate command prompt. This ensures everything is done in the virtual environment because your VS Code is running in the venv.
