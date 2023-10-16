@@ -453,4 +453,6 @@ Now, we can see and edit all our models and add and delete and update and do eve
 
 Views are what's next up in the getting started guide so let's have another look at them!
 
+I think I may actually just go ahead and make a new project that isn't a Store, I wanted to make a blog for a while so I may do that here?
+
 
