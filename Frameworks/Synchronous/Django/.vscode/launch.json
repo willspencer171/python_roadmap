@@ -8,10 +8,10 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\storefront\\manage.py",
+            "program": "${workspaceFolder}\\blogpage\\manage.py",
             "args": [
                 "runserver",
-                "9000"
+                "8000"
             ],
             "django": true,
             "justMyCode": true
