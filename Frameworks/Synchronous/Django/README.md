@@ -489,4 +489,68 @@ After a whole bunch of debugging, I've got my lil model set up and ready to go. 
 
 Let's talk about views baby!
 
-We need the user to see things that they do, so we need to create views to render a response to the user
+We need the user to see things that they do, so we need to create views to render a response to the user. We've gone over this [above](#lets-talk-about-views), really but there is a change or two I'd like to note. The way we did it before is very basic, very barebones. However, the way the tutorial teaches is to use the `template` module to render things. You can also pass arguments to your views based on what's in the URL. The [URL Dispatcher](https://docs.djangoproject.com/en/4.2/topics/http/urls/) is a part of Django that parses the URL and decides from there how to use it in your views. Say we have a view:
+
+```python
+def say_hello(request, name):
+    return HttpResponse("Hello, " + name)
+```
+
+How does Django know what to pass as `name`? It's in the URL. For example, if this view is at the URL `Blogs/say_hello/`, anything passed after the final `/` is passed as a string to `name`. We can also specify the datatype passed through the URL in the `urls.py` file like this:
+
+```python
+urlpatterns = [
+    # ...
+    path("<str:name>/", views.say_hello)
+]
+```
+
+And the Dispatcher will match the URL pattern and direct appropriately :)
+
+I want my page to look a little nicer, using some HTML (and CSS if I skip to part 6 of the tutorial :/) so how can I do this? Let's start by adding a template to our views
+
+I'm going to add functionality for the homepage (the root URL). First, I'll direct the empty URL pattern "" to my Blogs URLs script and that to my `homepage` view:
+
+```python
+# project urls.py
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('Blogs.urls')),
+]
+
+# App urls.py
+
+urlpatterns = [
+    path('', views.homepage, name="home"),
+]
+```
+
+Django knows where to find my templates (they're in my templates folder, strangely), so I can find that using the `loader` object in `django.template` module. Now, I can retrieve a template and store it, then render it using the template renderer. I also want to pass variables as a context to my template, so I set a variable for that as well. One of the context variables I want to pass is the current session user:
+
+```python
+from django.template import loader
+
+def homepage(request):
+    template = loader.get_template("index.html")
+    current_user = request.user
+    context = {
+        "user": current_user,
+    }
+
+    return HttpResponse(template.render(context, request))
+```
+
+I can actually make this a little nicer by doing what we did in the first Django tutorial:
+
+```python
+def homepage(request):
+    current_user = request.user
+    context = {
+        "user": current_user,
+    }
+
+    return render(request, "index.html", context)
+```
+
+which removes the need for the `get_template` method since I won't really be using it.
