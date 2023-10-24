@@ -455,4 +455,38 @@ Views are what's next up in the getting started guide so let's have another look
 
 I think I may actually just go ahead and make a new project that isn't a Store, I wanted to make a blog for a while so I may do that here?
 
+The tutorial site sets out a whole bunch of views that a blog page might have and some of them are as follows:
 
+> - Homepage
+> - Entry “detail” page
+> - Archive pages by year, month and day
+> - Commenting
+
+<details>
+<summary>Models in the new project</summary>
+    <h4>Blog Post</h4>
+    <ul>
+        <li>Author</li>
+        <li>Title</li>
+        <li>Content</li>
+        <li>Comments</li>
+        <li>Timestamps</li>
+    </ul>
+    <h4>Comment</h4>
+    <ul>
+        <li>Author</li>
+        <li>Content</li>
+        <li>Timestamp</li>
+    </ul>
+    <h4>User</h4>
+    <ul>
+        <li>Blogs</li>
+        <li>Name</li>
+    </ul>
+</details>
+
+After a whole bunch of debugging, I've got my lil model set up and ready to go. Now, where was I?
+
+Let's talk about views baby!
+
+We need the user to see things that they do, so we need to create views to render a response to the user
