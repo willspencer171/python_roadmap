@@ -1,3 +1,9 @@
-#head-bar {
-    
+.header {
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
 }
