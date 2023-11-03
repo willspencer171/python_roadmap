@@ -1,9 +1,12 @@
-.header {
-    display: flex;
-    width: 100vw;
-    height: 10vh;
-    position: relative;
-    justify-content: space-around;
-    align-items: center;
-    background-color: red;
+.blog-subtitle {
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+a {
+    transition: all .15s ease-in-out;
+}
+
+.bi {
+    fill: aliceblue;
 }
