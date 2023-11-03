@@ -1,6 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, get_object_or_404
+from .models import *
 
 # Create your views here.
 def homepage(request):
@@ -10,3 +9,14 @@ def homepage(request):
     }
 
     return render(request, "index.html", context)
+
+def view_blog(request, post_id):
+    current_user = request.user
+    blog_post = get_object_or_404(BlogPost, pk=post_id)
+
+    context = {
+        "user": current_user,
+        "post": blog_post
+    }
+
+    return render(request, "blogs.html", context)
