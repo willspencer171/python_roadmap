@@ -24,7 +24,8 @@ class Category(models.Model):
 class BlogPost(models.Model):
     blog_author = models.ForeignKey(User, on_delete=models.PROTECT)
     title = models.CharField(max_length=64)
-    blog_content = models.TextField(max_length=255)
+    subtitle = models.CharField(max_length=128, null=True, blank=True)
+    blog_content = models.TextField()
     posted_at = models.DateTimeField(default=timezone.now, editable=False)
     category = models.ManyToManyField(Category)
 
