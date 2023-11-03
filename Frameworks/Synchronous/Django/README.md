@@ -554,3 +554,85 @@ def homepage(request):
 ```
 
 which removes the need for the `get_template` method since I won't really be using it.
+
+Another thing that we would like to note is the ability to get objects from the database, as well as raise a 404 error if the object is not found. This can be done in long as follows:
+
+```python
+from django.http import Http404
+
+from .models import User
+
+def view_getting_user(request, object_id):
+    try:
+        a_user = User.objects.get(pk=object_id)
+    except User.DoesNotExist:
+        raise Http404("User object does not exist")
+    
+    return render(request, "index.html", {"user": a_user})
+```
+
+which will raise a 404 error if the object isn't in your database. There is a much nicer way of doing this - `get_object_or_404` - that can be found in the `django.shortcuts` module like `render` was which takes your object type and search term as arguments. Using the above example, that would be `a_user = get_object_or_404(User, pk=object_id)` instead of the whole try-except block.
+
+Wowee, it's been a lil while since I updated this README!
+
+#### Let's have a brief look into Django Template syntax!
+
+As we've seen a bit above, Django has a way of getting data into and out of a template file, typically using `{ }` to show this. The first thing to look at is how to access _context variables_. Let's say your passing the following dictionary as a template:
+
+```python
+context = {
+    "user": request.user,
+    "post": BlogPost.posts.first()
+}
+```
+
+##### [Variables](https://docs.djangoproject.com/en/4.2/topics/templates/#variables)
+
+Then you can access these variables using `{{ user }}` or `{{ post }}`, as well as all their associated properties like `{{ user.first_name }}` and `{{ post.title }}`. Also, if the variable resolves to a callable, the callable will be called with no parameters. For instance, `{{ user.blogpost_set.all }}` will return the set of blogs belonging to a user.
+
+##### [Tags](https://docs.djangoproject.com/en/4.2/topics/templates/#tags)
+
+Tags are a convenient way of adding logic to your HTML template file. You can add if statements, for loops, while loops and other logical and flow controls. These are enclosed in `{% %}`. A complete set of built-in tags can be found [here](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#ref-templates-builtins-tags)
+
+##### [Filters](https://docs.djangoproject.com/en/4.2/topics/templates/#filters)
+
+These transform the data given by variables and tags. Again, there is an extensive list of these transforms that can be found [here](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#ref-templates-builtins-filters). These make for important tools, and have come up in my own templates when formatting datetime (or timezone) objects as a legible string.
+
+It is really worthwhile noting that I made a custom filter by using Bard (Google's answer to ChatGPT) that has been really useful in parsing large bodies of blog content such that it looks good as HTML. FOR NOW, this works in lieu of saving blog content as actual HTML. Let's just put some of that stuff in a dropdown
+
+<details>
+<summary>Custom Filter</summary>
+
+```python
+# linebreaksbr.py
+
+from django.template.library import Library
+from django.utils.safestring import mark_safe
+from django.utils.text import normalize_newlines
+import re
+
+register = Library()
+
+@register.filter(is_safe=True, needs_autoescape=True)
+def linebreaksbr(value, autoescape=True):
+    """
+    Converts line breaks to `<br>` tags.
+    """
+    value = normalize_newlines(value)
+
+    value = '<p class="p-1">' + value
+    # subsitute all multiple <br> tags, newlines and carriage returns 
+    # for p tags
+    value = re.sub(r'(\<br\>){2,}|(\n)+|(\r)+', '</p><p class="p-1">', value)
+    value += '</p>'
+
+    # mark_safe required to render as HTML in order to prevent
+    # malicious HTML injection
+    return mark_safe(f'<div class="p-2" id="html-block>{value}</div>')
+```
+
+</details>
+
+So now, I've created two templates, one for the landing page (which has nothing on it), and one for viewing a blog. There are common features between these two templates. For example, I've included a navbar that should be common across all templates, but I want to be able to create a new template without necessarily copying and pasting everything. So what I can do is I can throw all that markup into another HTML file and `{% extends %}` that file by inserting a `{% block %}` into a specific place in the base file. This makes every template a child of this base template, and I can keep my code legible and maintainable.
+
+Now, I'd like to make a view that can create a blog post from a form, then submit it.
