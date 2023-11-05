@@ -20,3 +20,11 @@ def view_blog(request, post_id):
     }
 
     return render(request, "blogs.html", context)
+
+def create_blog(request):
+    
+    context = {
+
+    }
+    
+    return render(request, "create_blog.html", context)
