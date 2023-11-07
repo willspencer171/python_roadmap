@@ -1,8 +1,28 @@
 {% extends "base.html" %}
 
+{% block title%}Login to BlogWorld{% endblock%}
+
 {% block base %}
 
-<title>Login to BlogWorld</title>
-
+<div class="card mx-auto" style="width: 20rem;">
+    <div class="card-body">
+        <h1 class="card-title">Welcome back!</h1>
+        <form method="post" action="{% url 'Blogs:login_authorisation' %}">
+            {% csrf_token %}
+            {% if error_message %}
+            <p id="error" class="text-danger">Login credentials did not match</p>
+            {% endif %}
+            <div class="my-2">
+                <label for="usernameEntry" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="usernameEntry">
+            </div>
+            <div class="my-2">
+                <label for="passwordEntry" class="form-label">Password</label>
+                <input type="text" class="form-control" name="password" id="passwordEntry">
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Submit to me</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
