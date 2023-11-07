@@ -614,7 +614,7 @@ import re
 register = Library()
 
 @register.filter(is_safe=True, needs_autoescape=True)
-def linebreaksbr(value, autoescape=True):
+def linebreaksbr(value, bootstrap_class, autoescape=True):
     """
     Converts line breaks to `<br>` tags.
     """
@@ -628,11 +628,53 @@ def linebreaksbr(value, autoescape=True):
 
     # mark_safe required to render as HTML in order to prevent
     # malicious HTML injection
-    return mark_safe(f'<div class="p-2" id="html-block>{value}</div>')
+    return mark_safe(f'<div class="{bootstrap_class}" id="html-block>{value}</div>')
 ```
+
+This all takes a bit of piecing together so let's go through it.
+
+`register` is an instance of the `Library` of tags and filters and such and such that Django has registered for use in templates. This is the object that we are appending our tags or filters to.
+
+Then we just define our filter. This is done by wrapping a function with `@register.filter` which takes a few parameters. I needed to add `is_safe=True` and `needs_autoescape=True` because I am dealing with HTML that needs to be confirmed to be safe by the engine.
+
+I define a filter `linebreaksbr` (which has the same name as another filter, so this will override the old one) that takes a value and can be passed one parameter `bootstrap_class` for wrapping the inserted HTML. Now, I process the value by normalising newlines, then looking for anything that could represent a linebreak (\n, \r, multiple `<br>` tags) and replace it with a paragraph wrapper. This value then gets returned to be injected into the template using `{{ value|linebreaksbr:bootstrap_class }}`.
 
 </details>
 
 So now, I've created two templates, one for the landing page (which has nothing on it), and one for viewing a blog. There are common features between these two templates. For example, I've included a navbar that should be common across all templates, but I want to be able to create a new template without necessarily copying and pasting everything. So what I can do is I can throw all that markup into another HTML file and `{% extends %}` that file by inserting a `{% block %}` into a specific place in the base file. This makes every template a child of this base template, and I can keep my code legible and maintainable.
 
 Now, I'd like to make a view that can create a blog post from a form, then submit it.
+
+SIKE I wrote a view for logging in first. Learned a bit about authentication and ALSO how Django manages users and how I can integrate the authentication system with my own Profile (updated from User) model. V interesting.
+
+### User Authentication
+
+So, we know that we can create a superuser via the command line, and we can also log in to that user through the admin page. But what if we want to do that with our own clients? We created a Profile model for a reason so we'd like to use it!
+
+Let's talk about how we can interface the built-in User model that comes with Django with our own model. I say this because the User model is designed to work with authentication methods and such and such, so we may as well just extend our model from that. We can do this with a one to one relationship:
+
+```python
+# models.py
+# ...
+from django.conf import settings
+
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, models.CASCADE)
+    # ...
+```
+
+`AUTH_USER_MODEL` is a setting found, obviously, in `settings.py`. It defaults to the Django User model but can be set as a different model if you have one configured. Having done this, it allows us to create a user and link it with the Django User model with all its credentials.
+
+Speaking of credentials, we'd like to log in now! On our webapp, not the admin page please.
+
+We need to create a template that we can use to log in with a simple form. For example, here's one:
+
+```html
+<form method="post" action="[take me to the next page]">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enter</button>
+</form>
+```
+
+and this template (called login.html) shall be kept in a subfolder of templates called registration. This is the pattern that Django looks for when you enter the urlpattern that takes you to the login form. The urlpattern? Django has a default view that renders a template found in registration as long as it's called `login.html` there's also one for logging out, changing passwords etc. These can all be found in the `django.contrib.auth` app that we have installed. We can write a urlpattern for this. Mine is set to `'accounts/'`
