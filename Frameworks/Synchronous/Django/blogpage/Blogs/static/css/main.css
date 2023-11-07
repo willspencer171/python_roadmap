@@ -10,3 +10,17 @@ a {
 .bi {
     fill: aliceblue;
 }
+
+body {
+    height: 100vh;
+}
+
+#main-wrapper {
+    position: relative;
+    padding-bottom: 4rem;
+    min-height: 100%;
+}
+
+.card {
+    margin-top: 8rem!important;
+}
